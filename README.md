@@ -15,7 +15,7 @@ JasperReportClient client = JasperReportClient.Create("http://localhost:8080/jas
 
 上傳檔案
 ```
-string createPath ="/Your/Path"
+string createPath ="/Your/Path";
 CreateResources dd = new CreateResources();
 DataSource dataSource = new DataSource();
 DataSourceReference refs = new DataSourceReference("/your/datasource/path");
