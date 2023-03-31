@@ -16,7 +16,8 @@ namespace JasperReports.Module
         public bool freshData = false;
         public bool saveDataSnapshot = false;
         public string transformerKey { get; set; }
-        public long reportContainerWidth = 1000;
+        public long reportContainerWidth = 1920;
+        public bool ignorePagination = true;
         public int page = 1;
         public string attachmentsPrefix = "/jasperserver/rest_v2/reportExecutions/{reportExecutionId}/exports/{exportExecutionId}/attachments/";
         public string baseUrl = "jasperserver";

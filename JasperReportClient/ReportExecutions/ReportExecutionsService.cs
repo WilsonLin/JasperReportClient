@@ -1,3 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Infrastructure.Extensions;
 using JasperReports.Module;
 
 namespace JasperReports.ReportExecutions
@@ -19,8 +26,14 @@ namespace JasperReports.ReportExecutions
         }
         public byte[] Download(string requestId, string exportId)
         {
+            byte[] result = null;
             var response = _api.OutputResource(requestId, exportId).Result;
-            return response.Content.ReadAsByteArrayAsync().Result;
+            if (response.StatusCode == HttpStatusCode.OK) // FIXME 下載有機率會失敗!!
+            {
+                // FIXME 每次下載的檔案大小都不同很奇怪!
+                result = response.Content.ReadAsByteArrayAsync().Result;
+            }
+            return result;
         }
     }
 }

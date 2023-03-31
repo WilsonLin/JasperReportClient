@@ -30,8 +30,8 @@ ReportExecutionsRequest req = new ReportExecutionsRequest();
 req.reportUnitUri = "/your/report/file/path/";
 req.outputFormat = exportType;
 ReportExecutionsResponse executions = client.ReportExecutions.ReportExecutions(req);
-ReportExportRequest re = new ReportExportRequest();
-re.outputFormat = exportType;
-var res = client.ReportExecutions.Exports(executions.requestId, re);
-byte[] response =  client.ReportExecutions.Download(executions.requestId, res.id);
+byte[] pdfBytes = client.ReportExecutions.Download(executions.RequestId, executions.Exports[0].Id);
 ```
+
+License
+MIT License.
