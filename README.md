@@ -4,10 +4,14 @@ c#操作JasperReport的解決方案
 
 目前僅實現上傳report與下載pdf,xls,cvs,docx
 
+----------
+
 使用方式
 ```
 JasperReportClient client = JasperReportClient.Create("http://localhost:8080/jasperserver", "jasperadmin", "bitnami");
 ```
+
+----------
 
 上傳檔案
 ```
@@ -23,6 +27,8 @@ jx.JrxmlFile = jf;
 dd.Jrxml = jx;
 ```
 
+----------
+
 下載檔案
 ```
 ExportType exportType = (ExportType)Enum.Parse(typeof(ExportType), "pdf");
@@ -33,5 +39,10 @@ ReportExecutionsResponse executions = client.ReportExecutions.ReportExecutions(r
 byte[] pdfBytes = client.ReportExecutions.Download(executions.RequestId, executions.Exports[0].Id);
 ```
 
-License
-MIT License.
+----------
+
+# License #
+
+----------
+
+[MIT](https://github.com/WilsonLin/JasperReportClient/blob/main/LICENSE "MIT") License.
